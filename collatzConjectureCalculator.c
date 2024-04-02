@@ -10,12 +10,12 @@ int main(int agrc , char ** agrv) {
     while(number > 1) {
         
         if(number % 2 == 0) {
-            number = number / 2;
-            step = step + 1;
+            number /= 2;
+            step += 1;
             printf("The result of step n°%i is %i\n", step, number);
     }   else {
-            number = 3 * number + 1;
-            step = step + 1;
+            number *= 3, number += 1;
+            step += 1;
             printf("The result of step n°%i is %i\n", step, number);
         } 
     }
