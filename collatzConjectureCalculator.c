@@ -3,7 +3,7 @@
 
 int main(int agrc , char ** agrv) {
     
-    int number, step;
+    int number, step = 0;
     printf("Insert the number:");
     scanf("%i", &number);
 
