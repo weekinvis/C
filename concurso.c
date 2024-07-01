@@ -14,6 +14,7 @@ int main() {
         scanf("%i", &nota[i]);
     }
     maiornota = nota[0];
+    in = 0;
 
     // encontra a maior nota
     // evita que, caso a quantidade de aprovados seja 1, nao imprima a maior nota
