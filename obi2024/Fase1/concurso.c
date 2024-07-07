@@ -18,13 +18,13 @@ int main() {
     maiornota = notas[0];
 
     for(i = 0; candidatos > i; i++) {
-        if(notas[i] > candidatos) {
+        if(notas[i] > maiornota) {
             maiornota = notas[i];
             in = i;
         }
     }
 
-    for(corte; corte > 0; corte--) {
+    for(corte; corte > 1; corte--) {
         notas[in] = -1;
         maiornota = -1;
         for(i = 0; candidatos > i; i++) {
@@ -34,6 +34,7 @@ int main() {
             } else {}
         }
     }
-    printf("%i", maiornota);
+
+    printf("%i ", maiornota);
     free(notas);
 }
