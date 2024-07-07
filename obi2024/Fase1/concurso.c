@@ -1,43 +1,39 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-
-    int n, k;
-    int nota[500], maiornota;
+    int candidatos, corte;
+    int* notas;
+    int maiornota;
     int i, in = 0;
 
-    // le os participantes e a quantidade de aprovados
-    scanf("%i %i", &n, &k);
+    scanf("%d %d", &candidatos, &corte);
 
-    // le todas as notas
-    for(i = 0; n > i; i++) {    
-        scanf("%i", &nota[i]);
+    notas = (int*)malloc(candidatos * sizeof(int));
+
+    for(i = 0; candidatos > i; i++) {
+        scanf("%d", &notas[i]);
     }
-    maiornota = nota[0];
 
-    // encontra a maior nota
-    // evita que, caso a quantidade de aprovados seja 1, nao imprima a maior nota
-    for(i = 0; n > i; i++) {
-        if(nota[i] > maiornota) {
-            maiornota = nota[i];
+    maiornota = notas[0];
+
+    for(i = 0; candidatos > i; i++) {
+        if(notas[i] > candidatos) {
+            maiornota = notas[i];
             in = i;
         }
     }
-    
-    // ate a quantidade de aprovados for igual a 1
-    for(k; k > 1; k--) {
-        // destroi a maior nota e encontra a enesima maior nota
-        nota[in] = -1;
+
+    for(corte; corte > 0; corte--) {
+        notas[in] = -1;
         maiornota = -1;
-        for(i = 0; n > i; i++) {
-            if(nota[i] > maiornota) {
-                maiornota = nota[i];
+        for(i = 0; candidatos > i; i++) {
+            if(notas[i] > maiornota) {
+                maiornota = notas[i];
                 in = i;
-            }
+            } else {}
         }
-    } 
-     
-    // a enesima maior nota eh igual a nota de corte
-    // imprime a nota de corte
+    }
     printf("%i", maiornota);
+    free(notas);
 }
