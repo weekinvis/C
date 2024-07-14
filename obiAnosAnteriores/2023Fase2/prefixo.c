@@ -35,6 +35,10 @@ int main(int argc, char** argv) {
             }
         }
     }
+
+    free(p1);
+    free(p2);
+
     printf("%i", count);
     return 0;
 }
