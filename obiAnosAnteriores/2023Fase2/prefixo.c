@@ -1,45 +1,40 @@
 #include <stdio.h>
-#define MAX_PALAVRA 1000
+#include <stdlib.h>
+#include <stdbool.h>
+#define barraZero 1
 
-int comparaStrings(char p1[], char p2[], int a, int b) {
-    int i;
-    int contador = 0;
-    
-    if(a > b) {
-        for(i = 0; b > i; i++) {
-            if(p1[i] == p2[i]) {
-                contador++;
+int main(int argc, char** argv) {
+    char* p1;
+    char* p2;
+    int tamanho[2];
+    int i, count = 0;
+    bool pal = true;
+
+    scanf("%d%*c", &tamanho[0]);
+    p1 = (char*)malloc(sizeof(char) * tamanho[0] + barraZero);
+    fgets(p1, tamanho[0] + barraZero, stdin);
+
+    scanf("%d%*c", &tamanho[1]);
+    p2 = (char*)malloc(sizeof(char) * tamanho[1] + barraZero); 
+    fgets(p2, tamanho[1] + barraZero, stdin);
+
+    if(tamanho[0] > tamanho[1]) {
+        for(i = 0; tamanho[1] > i; i++) {
+            if(p1[i] == p2[i] && pal == true) {
+                count++;
             } else {
-                i = b;
+                pal = false;
             }
         }
     } else {
-        for(i = 0; a > i; i++) {
-            if(p1[i] == p2[i]) {
-                contador++;
+        for(i = 0; tamanho[0] > i; i++) {
+            if(p1[i] == p2[i] && pal == true) {
+                count++;
             } else {
-                i = a;
+                pal = false;
             }
         }
     }
-    return contador;
-}
-
-int main() {
-    char p1[MAX_PALAVRA];
-    char p2[MAX_PALAVRA];
-    int a, b;
-    int resultado;
-    
-    scanf("%i%*c", &a);
-    fgets(p1, MAX_PALAVRA, stdin);
-    scanf("%i%*c", &b);
-    fgets(p2, MAX_PALAVRA, stdin);
-    
-    resultado = comparaStrings(p1, p2, a, b);
-    
-    printf("%i", resultado);
-    
+    printf("%i", count);
     return 0;
-    
 }
