@@ -8,7 +8,7 @@ int main(int argc, char** argv) {
     char* p2;
     int tamanho[2];
     int i, count = 0;
-    bool pal = true;
+    bool pre = true;
 
     scanf("%d%*c", &tamanho[0]);
     p1 = (char*)malloc(sizeof(char) * tamanho[0] + barraZero);
@@ -20,18 +20,18 @@ int main(int argc, char** argv) {
 
     if(tamanho[0] > tamanho[1]) {
         for(i = 0; tamanho[1] > i; i++) {
-            if(p1[i] == p2[i] && pal == true) {
+            if(p1[i] == p2[i] && pre == true) {
                 count++;
             } else {
-                pal = false;
+                pre = false;
             }
         }
     } else {
         for(i = 0; tamanho[0] > i; i++) {
-            if(p1[i] == p2[i] && pal == true) {
+            if(p1[i] == p2[i] && pre == true) {
                 count++;
             } else {
-                pal = false;
+                pre = false;
             }
         }
     }
