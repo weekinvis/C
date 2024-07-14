@@ -55,6 +55,11 @@ int main(int argc, char** argv) {
     leEstoque(estoque, tamanho, tipo);
     vendas = verificaVenda(estoque);
 
+    for(i = 0; tipo > i; i++) {
+        free(estoque[i]);
+    }
+    free(estoque);
+    
     printf("%i", vendas);
 
     return 0;
