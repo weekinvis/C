@@ -1,51 +1,61 @@
+#include <stdlib.h>
 #include <stdio.h>
-#define MAX_ESTOQUE 500
 
-int leEstoque(int estoque[][MAX_ESTOQUE], int tamanho, int tipo) {
-
+int leEstoque(int** estoque, int tamanho, int tipo) {
     int i, j;
 
-    for(j = 0; tamanho > j; j++) {
-        for(i = 0; tipo > i; i++) {
-            scanf("%i", &estoque[i][j]);
+    for(i = 0; tipo > i; i++) {
+        for(j = 0; tamanho > j; j++) {
+            scanf("%d%*c", &estoque[i][j]);
         }
     }
 
 }
 
-int verificaVenda(int estoque[][MAX_ESTOQUE], int q) {
+int verificaVenda(int** estoque) {
+    int qntVendas;
     int tamanho, tipo;
-    int contador = 0;
+    int i, count = 0;
+    
+    scanf("%d", &qntVendas);
 
-    for(q; q > 0; q--) {
-        scanf("%i %i", &tamanho, &tipo);
+    for(i = 0; qntVendas > i; i++) {
+        scanf("%d %d", &tipo, &tamanho);
         tamanho--;
         tipo--;
         if(estoque[tipo][tamanho] > 0) {
-            contador++;
+            count++;
             estoque[tipo][tamanho]--;
-        } else {}
+        } else {
+            continue;
+        }
+        
     }
 
-    return contador;
+    return count;
 }
 
-int main() {
-    
-    int estoque[MAX_ESTOQUE][MAX_ESTOQUE];
-    int tamanho, tipo;
-    int qntCompras;
-    int contador;
-    
-    scanf("%i %i", &tamanho, &tipo);
+int main(int argc, char** argv) {
+    int tamanho, tipo, vendas;
+    int** estoque;
+    int i, j;
+
+    scanf("%d %d", &tipo, &tamanho);
+
+    // aloca espaco
+
+    estoque = (int**)malloc(sizeof(int*) * tipo);
+
+    for(i = 0; tipo > i; i++) {
+        estoque[i] = (int*)malloc(sizeof(int) * tamanho);
+    }
+
+    // le o estoque
 
     leEstoque(estoque, tamanho, tipo);
+    vendas = verificaVenda(estoque);
 
-    scanf("%i", &qntCompras);
+    printf("%i", vendas);
 
-    contador = verificaVenda(estoque, qntCompras);
-
-    printf("%i", contador);
-    
     return 0;
 }
