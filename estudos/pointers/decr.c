@@ -17,11 +17,13 @@ int main() {
 
     numeros = (uint64_t*)calloc(qntNum, sizeof(uint64_t));
 
+    printf("Digite os numeros:");
+
     for(i = 0; qntNum > i; i++) {
-        printf("Digite o numero %i: ", i + 1);
         scanf("%*c%lli", &numeros[i]);
     }
 
+    printf("\n\n---Texto Decriptado---\n\n");
     for(i = 0; qntNum > i; i++) {
         decript = (char*)&numeros[i];
         
@@ -30,6 +32,7 @@ int main() {
         }
         
     }
+    printf("\n");
     free(numeros);
     return 0;
 }
