@@ -1,3 +1,7 @@
+/*
+    arquivo que encripta strings em numeros usando ponteiros
+*/
+
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
