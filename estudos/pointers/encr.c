@@ -22,7 +22,7 @@ int main() {
     printf("Digite a string: ");
     fgets(letras, qLetras + 1, stdin);    
 
-    printf("\n\n---Texto encriptado---\n\n");
+    printf("\n\n---Texto encriptado---\n\n\n");
     for(i = 0; qLetras > i; i++) {
         if(j >= sizeof(uint64_t)) {
             if(soma == 0) {
@@ -40,6 +40,6 @@ int main() {
         soma += letras[i] * fator;
     }
     free(letras);
-    printf("%lli\n\n>qnt de numeros %i", soma, c + 1);
+    printf("%lli\n\n>qnt de numeros %i\n", soma, c + 1);
     return 0;
 }
