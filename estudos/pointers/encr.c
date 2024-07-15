@@ -40,6 +40,6 @@ int main() {
         soma += letras[i] * fator;
     }
     free(letras);
-    printf("%lli\n\n>qnt de numeros %i\n", soma, c + 1);
+    printf("%lli\n\n>qnt de numeros %i\n\n", soma, c + 1);
     return 0;
 }
