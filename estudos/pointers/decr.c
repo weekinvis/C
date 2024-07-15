@@ -1,3 +1,7 @@
+/*
+    arquivo que decripta as mensagens criptografadas do arquivo encr.c usando ponteiros
+*/
+
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
