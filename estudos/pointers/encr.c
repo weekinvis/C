@@ -33,4 +33,5 @@ int main() {
     }
     free(letras);
     printf("%lli\n", soma);
+    return 0;
 }
