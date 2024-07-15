@@ -6,6 +6,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <math.h>
+#define TAM_BYTE 8
 
 int main() {
     int qLetras, i, j = 0, c = 0;
@@ -34,7 +35,7 @@ int main() {
                 c++;
             }
         }
-        fator = pow(2, (8 * j));
+        fator = pow(2, (TAM_BYTE * j));
         j++;
         soma += letras[i] * fator;
     }
