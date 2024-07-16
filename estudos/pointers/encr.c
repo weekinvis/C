@@ -14,7 +14,7 @@ int main() {
     uint64_t fator = 1;
     uint64_t soma = 0;
 
-    printf("Digite quantas letras vc precisa (caso o texto seja grande, chute alto.)\n:");
+    printf("Digite quantos caracteres serao encriptados (caso a quantidade seja grande, chute alto.)\n:");
     scanf("%d%*c", &qLetras);
 
     letras = (char*)calloc(qLetras + 1, sizeof(char));
