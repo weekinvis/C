@@ -1,5 +1,5 @@
 /*
-    arquivo que decripta as mensagens criptografadas pelo arquivo encr.c usando ponteiros
+    
 */
 
 #include <stdlib.h>
