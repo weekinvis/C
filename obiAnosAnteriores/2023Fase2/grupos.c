@@ -10,7 +10,6 @@ int compara(int grupos[][3], int juntos[][2], int separados[][2], int qE, int qJ
 	int i, j, k = 0;
 	int quebras = 0;
 
-
 	// quebra dos alunos que queriam estar juntos
 	for (k = 0; qJ > k; k++) {
 		for (i = 0; qE / 3 > i; i++) {
