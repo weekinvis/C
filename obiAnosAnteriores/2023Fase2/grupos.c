@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdint.h>
 #define MAX 333333
 #define MAX2 10000
 
