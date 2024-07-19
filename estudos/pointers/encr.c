@@ -1,5 +1,5 @@
 /*
-    arquivo que encripta strings em numeros usando ponteiros
+
 */
 
 #include <stdlib.h>
