@@ -3,6 +3,8 @@
 #define MAX 333333
 #define MAX2 10000
 
+/* ainda vou escrever em alocacao dinamica. O codigo esta extremamente ineficiente, entretanto, a logica parece estar correta.
+
 int compara(int grupos[][3], int juntos[][2], int separados[][2], int qE, int qJ, int qS) {
 
 	int i, j, k = 0;
@@ -54,16 +56,16 @@ int main(int argc, char** argv) {
 
 	do {
 
-	scanf_s("%d %d %d", &a, &b, &c);
+	scanf("%d %d %d", &a, &b, &c);
 
 	for (i = 0; b > i; i++) {
-		(void)scanf_s("%d %d", &juntos[i][0], &juntos[i][1]);
+		(void)scanf("%d %d", &juntos[i][0], &juntos[i][1]);
 	}
 	for (i = 0; c > i; i++) {
-		(void)scanf_s("%d %d", &separados[i][0], &separados[i][1]);
+		(void)scanf("%d %d", &separados[i][0], &separados[i][1]);
 	}
 	for (i = 0; a / 3 > i; i++) {
-		(void)scanf_s("%d %d %d", &grupos[i][0], &grupos[i][1], &grupos[i][2]);
+		(void)scanf("%d %d %d", &grupos[i][0], &grupos[i][1], &grupos[i][2]);
 	}
 	(void)compara(grupos, juntos, separados, a, b, c);
 
