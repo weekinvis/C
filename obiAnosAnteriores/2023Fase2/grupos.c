@@ -3,7 +3,7 @@
 #define MAX 333333
 #define MAX2 10000
 
-/* ainda vou escrever em alocacao dinamica. O codigo esta extremamente ineficiente, entretanto, a logica parece estar correta.
+// ainda vou escrever em alocacao dinamica. O codigo esta extremamente ineficiente, entretanto, a logica parece estar correta.
 
 int compara(int grupos[][3], int juntos[][2], int separados[][2], int qE, int qJ, int qS) {
 
