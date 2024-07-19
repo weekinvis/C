@@ -1,5 +1,5 @@
 /*
-
+    Arquivo que transforma strings em inteiros usando ponteiros
 */
 
 #include <stdlib.h>
