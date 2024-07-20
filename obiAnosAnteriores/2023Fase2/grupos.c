@@ -49,7 +49,7 @@ int main(int argc, char** argv) {
 	int** juntos, **separados;
 	int i;
 
-	scanf("%d %d %d", &a, &b, &c);
+	scanf_s("%d %d %d", &a, &b, &c);
 
 	grupos = (int**)malloc(sizeof(int*) * a / 3);
 
@@ -70,14 +70,31 @@ int main(int argc, char** argv) {
 	}
 
 	for (i = 0; b > i; i++) {
-		(void)scanf("%d %d", &juntos[i][0], &juntos[i][1]);
+		(void)scanf_s("%d %d", &juntos[i][0], &juntos[i][1]);
 	}
 	for (i = 0; c > i; i++) {
-		(void)scanf("%d %d", &separados[i][0], &separados[i][1]);
+		(void)scanf_s("%d %d", &separados[i][0], &separados[i][1]);
 	}
 	for (i = 0; a / 3 > i; i++) {
-		(void)scanf("%d %d %d", &grupos[i][0], &grupos[i][1], &grupos[i][2]);
+		(void)scanf_s("%d %d %d", &grupos[i][0], &grupos[i][1], &grupos[i][2]);
 	}
+	
 	(void)compara(grupos, juntos, separados, a, b, c);
+
+	for (i = 0; a / 3 > i; i++) {
+		free(grupos[i]);
+	}
+	free(grupos);
+
+	for (i = 0; b > i; i++) {
+		free(juntos[i]);
+	}
+	free(juntos);
+
+	for (i = 0; c > i; i++) {
+		free(separados[i]);
+	}
+	free(separados);
+
 	return 0;
 }
