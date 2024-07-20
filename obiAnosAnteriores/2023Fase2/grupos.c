@@ -1,10 +1,9 @@
 #include <stdio.h>
-#define MAX 333333
-#define MAX2 10000
+#include <stdlib.h>
 
-// ainda vou escrever em alocacao dinamica. O codigo esta extremamente ineficiente, entretanto, a logica parece estar correta.
+// O codigo esta extremamente ineficiente, entretanto, a logica parece estar correta.
 
-int compara(int grupos[][3], int juntos[][2], int separados[][2], int qE, int qJ, int qS) {
+int compara(int** grupos, int** juntos, int** separados, int qE, int qJ, int qS) {
 
 	int i, j, k = 0;
 	int quebras = 0;
@@ -46,20 +45,38 @@ int compara(int grupos[][3], int juntos[][2], int separados[][2], int qE, int qJ
 
 int main(int argc, char** argv) {
 	int a, b, c;
-	int grupos[MAX][3];
-	int juntos[MAX2][2], separados[MAX2][2];
+	int** grupos;
+	int** juntos, **separados;
 	int i;
 
-	scanf("%d %d %d", &a, &b, &c);
+	scanf_s("%d %d %d", &a, &b, &c);
+
+	grupos = (int**)malloc(sizeof(int*) * a / 3);
+
+	for (i = 0; a / 3 > i; i++) {
+		grupos[i] = (int*)malloc(sizeof(int) * 3);
+	}
+
+	juntos = (int**)malloc(sizeof(int*) * b);
 
 	for (i = 0; b > i; i++) {
-		(void)scanf("%d %d", &juntos[i][0], &juntos[i][1]);
+		juntos[i] = (int*)malloc(sizeof(int) * 2);
+	}
+
+	separados = (int**)malloc(sizeof(int*) * b);
+
+	for (i = 0; c > i; i++) {
+		separados[i] = (int*)malloc(sizeof(int) * 2);
+	}
+
+	for (i = 0; b > i; i++) {
+		(void)scanf_s("%d %d", &juntos[i][0], &juntos[i][1]);
 	}
 	for (i = 0; c > i; i++) {
-		(void)scanf("%d %d", &separados[i][0], &separados[i][1]);
+		(void)scanf_s("%d %d", &separados[i][0], &separados[i][1]);
 	}
 	for (i = 0; a / 3 > i; i++) {
-		(void)scanf("%d %d %d", &grupos[i][0], &grupos[i][1], &grupos[i][2]);
+		(void)scanf_s("%d %d %d", &grupos[i][0], &grupos[i][1], &grupos[i][2]);
 	}
 	
 	(void)compara(grupos, juntos, separados, a, b, c);
