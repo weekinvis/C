@@ -2,7 +2,6 @@
 #include <stdbool.h>
 
 bool verificaVar(int x, int y) {
-
     if(x > 8 || -8 > x || y > 8 || 0 > y) {
         return false;
     } else {
