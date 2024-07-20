@@ -10,7 +10,7 @@ bool verificaVar(int x, int y) {
 
 }
 
-int main() {
+int main(int argc, char** argv) {
     int x, y;
     bool resposta;
 
