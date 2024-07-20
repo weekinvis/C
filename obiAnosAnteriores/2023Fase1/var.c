@@ -1,27 +1,30 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-char verificaVar(int x, int y) {
+bool verificaVar(int x, int y) {
     char resposta;
 
     if(x > 8 || -8 > x || y > 8 || 0 > y) {
-        resposta = 'N';
-        return resposta;
+        return false;
     } else {
-        resposta = 'S';
-        return resposta;
+        return true;
     }
 
 }
 
 int main() {
     int x, y;
-    char resposta;
+    bool resposta;
 
     scanf("%i %i", &x, &y);
 
     resposta = verificaVar(x, y);
 
-    printf("%c", resposta);
+    if(resposta) {
+        printf("S");
+    } else {
+        printf("N");
+    }
 
     return 0;
 }
