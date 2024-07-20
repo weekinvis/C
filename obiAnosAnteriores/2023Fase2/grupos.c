@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// O codigo esta extremamente ineficiente, entretanto, a logica parece estar correta.
+// O codigo esta ineficiente, entretanto, a logica parece estar correta.
 
 int compara(int** grupos, int** juntos, int** separados, int qE, int qJ, int qS) {
 
