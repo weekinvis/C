@@ -19,5 +19,5 @@ int main() {
         H -= 24;
     }
     printf("%i\n%i\n%i", H, M, S);
-
+    return 0;
 }
