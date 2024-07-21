@@ -32,4 +32,5 @@ int main(int argc, char** argv) {
 
     free(sA);
     free(sB);
+    return 0;
 }
