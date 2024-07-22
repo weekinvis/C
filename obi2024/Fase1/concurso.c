@@ -37,4 +37,5 @@ int main() {
     
     printf("%i", maiornota);
     free(notas);
+    return 0;
 }
