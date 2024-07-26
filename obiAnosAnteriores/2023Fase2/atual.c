@@ -1,6 +1,8 @@
 #include <stdlib.h> // para usar alocacao dinamica
 #include <stdio.h> // para usar scanf e printf
 
+// ta incompleto, dps eu vou terminar
+
 int main(int argc, char* argv[]) {
 	int* seq, * seq2;
 	int a, i, j, k;
