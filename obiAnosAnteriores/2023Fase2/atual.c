@@ -16,8 +16,7 @@ int main(int argc, char* argv[]) {
 	for (i = 0; a > i; i++) {
 		scanf_s("%d", &seq[i]);
 	}
-	printf("\n");
-
+	
 	for (i = 0; a > i; i++) {
 		for (j = i; a > j; j++) {
 			seq2[j] = seq[j];
