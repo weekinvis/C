@@ -11,4 +11,5 @@ int main() {
     } else {
         printf("%i", (D - E) * 2);
     }
+    return 0;
 }
