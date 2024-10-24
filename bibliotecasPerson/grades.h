@@ -24,19 +24,19 @@ typedef struct grades_s {
 }grades_t;
 
 /*
-A+: 97% – 100% (Excelente superior)
-A: 93% – 96% (Excelente)
-A-: 90% – 92% (Excelente inferior)
-B+: 87% – 89% (Bom superior)
-B: 83% – 86% (Bom)
-B-: 80% – 82% (Bom inferior)
-C+: 77% – 79% (Médio superior)
-C: 73% – 76% (Médio)
-C-: 70% – 72% (Médio inferior)
-D+: 67% – 69% (Abaixo da média superior)
-D: 63% – 66% (Abaixo da média)
-D-: 60% – 62% (Abaixo da média inferior)
-F: 0% – 59% (Reprovado)
+A+: 97% â€“ 100% (Excelente superior)
+A: 93% â€“ 96% (Excelente)
+A-: 90% â€“ 92% (Excelente inferior)
+B+: 87% â€“ 89% (Bom superior)
+B: 83% â€“ 86% (Bom)
+B-: 80% â€“ 82% (Bom inferior)
+C+: 77% â€“ 79% (MÃ©dio superior)
+C: 73% â€“ 76% (MÃ©dio)
+C-: 70% â€“ 72% (MÃ©dio inferior)
+D+: 67% â€“ 69% (Abaixo da mÃ©dia superior)
+D: 63% â€“ 66% (Abaixo da mÃ©dia)
+D-: 60% â€“ 62% (Abaixo da mÃ©dia inferior)
+F: 0% â€“ 59% (Reprovado)
 */
 
 void pHconceito(char conceito[3], double per) {
@@ -222,11 +222,11 @@ void preencheDados(grades_t** dadosNotas, FILE* arquivoNotas) {
 	if (dadosNotas[trimAtual - 1] == NULL) {
 		dadosNotas[trimAtual - 1] = (grades_t*)malloc(sizeof(grades_t) * QNT_MATERIAS);
 		preencheNomes(dadosNotas, trimAtual);
-		preencheConceito(dadosNotas);
 		for (int i = 0; i < QNT_MATERIAS; i++) {
 			printf("Digite a nota de %s do %i trimestre: ", dadosNotas[trimAtual - 1][i].nomeDisciplina, trimAtual);
 			(void)scanf("%lf%*c", &dadosNotas[trimAtual - 1][i].notaTrimestre);
 		}
+		preencheConceito(dadosNotas);
 	}
 	else {
 		for (int i = 0; i < QNT_MATERIAS; i++) {
