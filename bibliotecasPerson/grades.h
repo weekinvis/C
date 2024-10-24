@@ -1,7 +1,5 @@
 #define NUM_CONCEITOS 13
-#define hTamConceitos 3
-#define hNumMaterias 13
-#define hNumTrim 3
+#define TAM_CONCEITOS 3
 
 // definicoes de nomes
 #define NOME_ARQUIVO "grades.txt"
@@ -10,11 +8,6 @@
 #define DISCIPLINA_MAIOR_NOME 15 + 1
 #define QNT_TRIMESTRES 3
 #define QNT_MATERIAS 13
-#define BARRA_0 1
-
-// definicoes de erros
-#define ERRO_PTR_NULL -1
-#define SUCESSO 0
 
 typedef struct grades_s {
 	char* nomeDisciplina;
@@ -23,24 +16,8 @@ typedef struct grades_s {
 
 }grades_t;
 
-/*
-A+: 97% – 100% (Excelente superior)
-A: 93% – 96% (Excelente)
-A-: 90% – 92% (Excelente inferior)
-B+: 87% – 89% (Bom superior)
-B: 83% – 86% (Bom)
-B-: 80% – 82% (Bom inferior)
-C+: 77% – 79% (Médio superior)
-C: 73% – 76% (Médio)
-C-: 70% – 72% (Médio inferior)
-D+: 67% – 69% (Abaixo da média superior)
-D: 63% – 66% (Abaixo da média)
-D-: 60% – 62% (Abaixo da média inferior)
-F: 0% – 59% (Reprovado)
-*/
-
-void pHconceito(char conceito[3], double per) {
-	const char conceitos[NUM_CONCEITOS][hTamConceitos] = {
+void pHconceito(char conceito[TAM_CONCEITOS], double per) {
+	const char conceitos[NUM_CONCEITOS][TAM_CONCEITOS] = {
 		"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-",
 		"D+", "D", "D-", "F"
 	};
@@ -96,12 +73,12 @@ void pHconceito(char conceito[3], double per) {
 
 void preencheConceito(grades_t** dadosNotas) {
 	double percentagem;
-	for (int i = 0; i < hNumTrim; i++) {
+	for (int i = 0; i < QNT_TRIMESTRES; i++) {
 		if (dadosNotas[i] == NULL) {
 
 		}
 		else {
-			for (int j = 0; j < hNumMaterias; j++) {
+			for (int j = 0; j < QNT_MATERIAS; j++) {
 				percentagem = dadosNotas[i][j].notaTrimestre;
 				if (i == 0) {
 					percentagem /= 30;
@@ -114,6 +91,7 @@ void preencheConceito(grades_t** dadosNotas) {
 		}
 	}
 }
+
 /* ------------------- Funcoes ----------------- */
 
 int fnumQuebras(FILE* arquivoAtual) {
@@ -226,7 +204,6 @@ void preencheDados(grades_t** dadosNotas, FILE* arquivoNotas) {
 			printf("Digite a nota de %s do %i trimestre: ", dadosNotas[trimAtual - 1][i].nomeDisciplina, trimAtual);
 			(void)scanf("%lf%*c", &dadosNotas[trimAtual - 1][i].notaTrimestre);
 		}
-		preencheConceito(dadosNotas);
 	}
 	else {
 		for (int i = 0; i < QNT_MATERIAS; i++) {
@@ -243,12 +220,12 @@ void preencheDados(grades_t** dadosNotas, FILE* arquivoNotas) {
 void imprimeDados(grades_t** dadosNotas) {
 	for (int i = 0; i < QNT_TRIMESTRES; i++) {
 		if (dadosNotas[i] == NULL) {
-
+			printf("\nSem dados do %i trimestre.\n", i + 1);
 		}
 		else {
 			printf("\nTrimestre %i:\n", i + 1);
 			for (int j = 0; j < QNT_MATERIAS; j++) {
-				printf("%-15s : %s\n", dadosNotas[i][j].nomeDisciplina, dadosNotas[i][j].conceito);
+				printf("%-15s : %-2s  (%.1f)\n", dadosNotas[i][j].nomeDisciplina, dadosNotas[i][j].conceito, dadosNotas[i][j].notaTrimestre);
 			}
 		}
 	}
@@ -268,5 +245,5 @@ void imprimirIntervalos() {
 		"D + : 67%% - 69%% (Abaixo da media superior)\n"
 		"D   : 63%% - 66%% (Abaixo da media)\n"
 		"D - : 60%% - 62%% (Abaixo da media inferior)\n\n"
-		"F   : 0%% - 59%% (Reprovado)\n\n");
+		"F   : 0%% - 59%% (Reprovado)\n");
 }
