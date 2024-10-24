@@ -119,7 +119,7 @@ void preencheNomes(grades_t** dadosNotas, int trimestreAtual) {
 		"MADEIRA", "ESPANHOL"
 	};
 	for (int i = 0; i < QNT_MATERIAS; i++) {
-		dadosNotas[trimestreAtual - 1][i].nomeDisciplina = (char*)malloc(sizeof(char) * strlen(nomeDisciplinas[i] + 2));
+		dadosNotas[trimestreAtual - 1][i].nomeDisciplina = (char*)malloc(sizeof(char) * strlen(nomeDisciplinas[i]) + 1);
 		if ((dadosNotas)[trimestreAtual - 1][i].nomeDisciplina == NULL) {
 			return;
 		}
