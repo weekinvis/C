@@ -4,42 +4,62 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 #include <stdio.h>
 #include <math.h>
 #define TAM_BYTE 8
 
-int main() {
-    int qLetras, i, j = 0, c = 0;
-    char* letras;
+#define QNT_MAX_LETRAS 6000
+
+static uint64_t* encr(char string[], int* r) {
     uint64_t fator = 1;
     uint64_t soma = 0;
+    uint64_t* arr = NULL;
+    int q = 0;
 
-    printf("Digite quantos caracteres serao transformados (caso a quantidade seja grande, chute alto.)\n:");
-    scanf("%d%*c", &qLetras);
-
-    letras = (char*)calloc(qLetras + 1, sizeof(char));
-
-    printf("Digite a string: ");
-    fgets(letras, qLetras + 1, stdin);    
-
-    printf("\n\n---Texto encriptado---\n\n\n");
-    for(i = 0; qLetras > i; i++) {
-        if(j >= sizeof(uint64_t)) {
+     for(int p = 0; strlen(string) + 1 > p; p++) {
+        if(q >= sizeof(uint64_t)) {
             if(soma == 0) {
-                j = 0;
-                soma = 0;
+                break;
             } else {
-                j = 0;
-                printf("%lli ", soma);
+                (*r)++;
+                arr = (uint64_t*)realloc(arr, sizeof(uint64_t) * (*r));
+                arr[(*r) - 1] = soma;
                 soma = 0;
-                c++;
+                q = 0;
             }
         }
-        fator = pow(2, (TAM_BYTE * j));
-        j++;
-        soma += letras[i] * fator;
+        fator = pow(2, (TAM_BYTE * q));
+        q++;
+        soma += string[p] * fator;
     }
-    free(letras);
-    printf("%lli\n\n>qnt de numeros %i\n\n", soma, c + 1);
+
+    if(soma != 0) {
+        (*r)++;
+        arr = (uint64_t*)realloc(arr, sizeof(uint64_t) * (*r));
+        arr[(*r) - 1] = soma;
+    }
+
+    return arr;
+}
+
+int main(int argc, char* argv[]) {
+    char string[QNT_MAX_LETRAS];
+    uint64_t* arr_encr = NULL;
+    int r = 0;
+
+    printf("Digite a string: ");
+    fgets(string, QNT_MAX_LETRAS + 1, stdin);    
+
+    arr_encr = encr(string, &r);
+
+    for(int p = 0; p < r; p++) {
+        printf("%llu ", arr_encr[p]);
+    }
+
+    printf("\n\nQnt numeros: %d", r);
+
+    free(arr_encr);
+
     return 0;
 }
