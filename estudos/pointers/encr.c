@@ -34,7 +34,7 @@ static uint64_t* encr(char string[], int* r) {
         soma += string[p] * fator;
     }
 
-    if(soma != 0) {
+    if(soma) {
         (*r)++;
         arr = (uint64_t*)realloc(arr, sizeof(uint64_t) * (*r));
         arr[(*r) - 1] = soma;
