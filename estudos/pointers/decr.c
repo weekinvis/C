@@ -6,33 +6,48 @@
 #include <stdint.h>
 #include <stdio.h>
 
-int main() {
-    uint64_t* numeros;
+static int decr(int qntNum, uint64_t* numeros) {
     char* decript;
-    int qntNum;
-    int i, j = 0;
 
-    printf("Digite a quantidade de numeros:\n:");
-    scanf("%d", &qntNum);
+    numeros = (uint64_t*)calloc(qntNum , sizeof(uint64_t));
 
-    numeros = (uint64_t*)calloc(qntNum, sizeof(uint64_t));
+    if (numeros == NULL) {
+        return 1;
+    }
 
     printf("Digite os numeros:");
 
-    for(i = 0; qntNum > i; i++) {
-        scanf("%*c%lli", &numeros[i]);
+    for (int i = 0; qntNum > i; i++) {
+        (void)scanf("%lli", &numeros[i]);
     }
 
-    printf("\n\n---Texto Decriptado---\n\n");
-    for(i = 0; qntNum > i; i++) {
+    for (int i = 0; qntNum > i; i++) {
         decript = (char*)&numeros[i];
-        
-        for(j = 0; sizeof(uint64_t) > j; j++) {
+
+        for (int j = 0; sizeof(uint64_t) > j; j++) {
             printf("%c", *(decript + j));
         }
-        
+
     }
+    return 0;
     printf("\n");
+}
+
+int main(int argc, char* argv[]) {
+    uint64_t* numeros = NULL;
+    int fSucess;
+    int qntNum;
+
+    printf("Digite a quantidade de numeros:\n:");
+    (void)scanf("%d%*c", &qntNum);
+
+     fSucess = decr(qntNum, numeros);
+
+     if (fSucess) {
+         fprintf(stderr, "Nao foi possivel alocar!\n");
+         return 1;
+     }
+
     free(numeros);
     return 0;
 }
