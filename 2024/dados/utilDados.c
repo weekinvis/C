@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "util.h"
+#include "utilDados.h"
 
 uint8_t* utilEncontraMaioresValores(uint8_t* resultados) {
     uint8_t maiorValor;
