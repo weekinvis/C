@@ -1,5 +1,5 @@
 #include "dados.h"
-#include "util.h"
+#include "utilDados.h"
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
