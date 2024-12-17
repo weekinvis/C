@@ -7,8 +7,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
-#define TAM_BYTE 8
 
+#define TAM_BYTE 8
+#define SUCESSO 0
 #define QNT_MAX_LETRAS 6000
 
 static uint64_t* encr(char string[], int* r) {
@@ -61,5 +62,5 @@ int main(int argc, char* argv[]) {
 
     free(arr_encr);
 
-    return 0;
+    return SUCESSO;
 }
