@@ -33,7 +33,6 @@ static bool decr(int qntNum, uint64_t* numeros) {
 
     }
     return false;
-    printf("\n");
 }
 
 int main(int argc, char* argv[]) {
