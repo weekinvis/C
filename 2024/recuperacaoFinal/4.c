@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
             if(resultado == 0.0) {
                 break;
             }
-            printf("A circunferencia da sua esfera possui %.2lf unidades\n", resultado);
+            printf("A circunferencia do seu circulo possui %.2lf unidades\n", resultado);
             break;
         case 4:
             break;
