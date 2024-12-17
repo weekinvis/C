@@ -2,7 +2,7 @@
 
 #define SUCESSO 0
 
-int main(int agrc, char* argv[]) {
+int main(int argc, char* argv[]) {
     int alturaTriangulo;
     char caracterePreenchimento;
 
