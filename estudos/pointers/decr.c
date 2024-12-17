@@ -1,5 +1,5 @@
 /*
-    Arquivo que destransforma os numeros em strings usando ponteiros
+    Arquivo que destransforma numeros em strings usando ponteiros
 */
 
 #include <stdlib.h>
