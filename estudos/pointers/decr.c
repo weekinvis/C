@@ -5,14 +5,17 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdbool.h>
 
-static int decr(int qntNum, uint64_t* numeros) {
+#define SUCESSO 0
+
+static bool decr(int qntNum, uint64_t* numeros) {
     char* dec;
 
     numeros = (uint64_t*)calloc(qntNum , sizeof(uint64_t));
 
     if (numeros == NULL) {
-        return 1;
+        return true;
     }
 
     printf("Digite os numeros:");
@@ -29,25 +32,25 @@ static int decr(int qntNum, uint64_t* numeros) {
         }
 
     }
-    return 0;
+    return false;
     printf("\n");
 }
 
 int main(int argc, char* argv[]) {
     uint64_t* numeros = NULL;
-    int fSucess;
+    bool erro;
     int qntNum;
 
     printf("Digite a quantidade de numeros:\n:");
     (void)scanf("%d%*c", &qntNum);
 
-     fSucess = decr(qntNum, numeros);
+     erro = decr(qntNum, numeros);
 
-     if (fSucess) {
+     if (erro) {
          fprintf(stderr, "Nao foi possivel alocar!\n");
-         return 1;
+         return erro;
      }
 
     free(numeros);
-    return 0;
+    return SUCESSO;
 }
