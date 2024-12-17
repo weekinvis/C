@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 static int decr(int qntNum, uint64_t* numeros) {
-    char* decript;
+    char* dec;
 
     numeros = (uint64_t*)calloc(qntNum , sizeof(uint64_t));
 
@@ -22,10 +22,10 @@ static int decr(int qntNum, uint64_t* numeros) {
     }
 
     for (int i = 0; qntNum > i; i++) {
-        decript = (char*)&numeros[i];
+        dec = (char*)&numeros[i];
 
         for (int j = 0; sizeof(uint64_t) > j; j++) {
-            printf("%c", *(decript + j));
+            printf("%c", *(dec + j));
         }
 
     }
