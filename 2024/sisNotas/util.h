@@ -11,4 +11,4 @@ void ordenaNotasTotais(materias_t** materias, int trimestreAtual);
 void utilEscreveArquivoBin(materias_t** materias, int trimAtual);
 void utilTrocar(materias_t** materias, int q);
 
-#endif
+#endif // bdop$util_h__
