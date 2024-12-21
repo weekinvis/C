@@ -32,6 +32,7 @@ int main(int argc, char* argv[]) {
 		printf("\n1 - Inserir Notas\n");
 		printf("2 - Imprimir Notas\n");
 		printf("3 - Excluir Notas\n");
+		printf("4 - Editar\n");
 		printf("0 - Sair\n");
 		printf("Opcao: ");
 		(void)scanf("%d%*c", &opcao);
@@ -49,6 +50,10 @@ int main(int argc, char* argv[]) {
 		case 3:
 			remove(NOM_ARQ);
 			removerArquivo = true;
+			break;
+		case 4:
+			imprimeNotasTrimestres(materias, trimestreAtual);
+			editarTrimestre(materias, trimestreAtual);
 			break;
 		case 0:
 			break;
