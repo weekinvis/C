@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include "util.h"
 
+#define TRIM2e3_VALOR 35
+#define TRIM1_VALOR 30
+
 void utilEscreveArquivoBin(materias_t** materias, int trimAtual) {
 	FILE* arquivo = NULL;
 
@@ -84,10 +87,10 @@ void imprimeNotasTrimestres(materias_t** materias, int trimestreAtual) {
 	for (int p = 0; p < QNT_MATERIAS; p++) {
 		total = 0;
 		for (int q = 0; q < trimestreAtual - 1; q++) {
-			printf("%-25s: %-5.2f |", materias[p][q].nomeMateria, materias[p][q].nota);
+			printf("%-25s: %-5.1f (%5.2f%%)|", materias[p][q].nomeMateria, materias[p][q].nota, (trimestreAtual == 1) ? (materias[p][q].nota / TRIM1_VALOR) * 100 : (materias[p][q].nota / TRIM2e3_VALOR) * 100);
 			total += materias[p][q].nota;
 		}
-		printf(" Total: %.2f", total);
+		printf(" Total: %.1f", total);
 		printf("\n");
 	}
 
