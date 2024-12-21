@@ -25,6 +25,7 @@ typedef struct materias_s {
 
 void leNotasTrimestreAtual(materias_t** materias, int* trimestreAtual);
 void inicializaMaterias(materias_t** materias, int trimestreAtual);
+void editarTrimestre(materias_t** materias, int trimestreAtual);
 void alocaSegundaDimensaoMaterias(materias_t** materias);
 void initMaterias(materias_t** materias);
 
