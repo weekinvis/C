@@ -37,9 +37,9 @@ void alocaSegundaDimensaoMaterias(materias_t** materias) {
 void inicializaMaterias(materias_t** materias, int trimestreAtual) {
 	const char nomesMaterias[][TAM_MAX_NOME_MATERIA] = {
 		"Biologia", "Matematica", "Lingua Portuguesa",
-		"Fisica Aplicada", "Historia", "Algoritmo e Est de Dados",
-		"Banco de Dados", "Infr. e Virtualizacao", "Sis. Computacionais",
-		"Prog. Orientada a Obj", "ED. Fisica", "Ingles", "Quimica"
+		"Fisica", "Madeira", "IP",
+		"ESD", "Artes", "Sociologia",
+		"Espanhol", "ED. Fisica", "Ingles", "Quimica"
 	};
 
 	for (int p = 0; p < QNT_MATERIAS; p++) {
@@ -70,4 +70,38 @@ void leNotasTrimestreAtual(materias_t** materias, int* trimestreAtual) {
 	}
 	(*trimestreAtual)++;
 	return;
+}
+
+void editarTrimestre(materias_t** materias, int trimestreAtual) {
+	int trimestreEditar;
+	int materiaEditar;
+	printf("Digite qual o trimestre deseja editar: ");
+	(void)scanf("%d%*c", &trimestreEditar);
+
+	if(trimestreEditar > (trimestreAtual - 1)) {
+		return;
+	}
+
+	if(0 >= trimestreEditar || trimestreEditar >= 4) {
+		return;
+	}
+
+	for(int p = 0; p < QNT_MATERIAS; p++) {
+		printf("%-2i - %-25s: %4.1f\n", p + 1, materias[p][trimestreEditar - 1].nomeMateria, materias[p][trimestreEditar - 1].nota);
+	}
+	printf("Digite o numero relativo a materia que deseja editar: ");
+	(void)scanf("%d%*c", &materiaEditar);
+
+	if(0 >= materiaEditar || materiaEditar >= 14) {
+		return;
+	}
+	materiaEditar--;
+
+	printf("Digite a nova nota de %s: ", materias[materiaEditar][trimestreEditar - 1]);
+	(void)scanf("%f%*c", &materias[materiaEditar][trimestreEditar - 1].nota);
+
+	system("clear || cls");
+
+	return;
+
 }
