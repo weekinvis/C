@@ -1,3 +1,0 @@
-1- Retirar os externs dos arquivos .h
-2- Remover arquivo.c e arquivo.h e mover o conteudo desses para util.c e util.h
-3- Enxutar o codigo criando mais funcoes
