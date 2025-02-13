@@ -6,7 +6,7 @@
 * @date    2025-02-12
 */
 
-// Definicoes de Bibliotecas
+// Inclusoes de Bibliotecas
 #include <stdlib.h>
 #include <stdio.h>
 
