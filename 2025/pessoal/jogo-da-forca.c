@@ -52,7 +52,7 @@ void limpar_tela() {
 
 #define QNT_NIVEIS		   3
 #define QNT_MAX_PALAVRAS_N 5
-#define QNT_INICIAL_VIDAS  5
+#define QNT_INICIAL_VIDAS  3
 
 static void imprime_info(const char * letras_descobertas, const char * letras_tentadas, const int tamanho_palavra, const int quantidade_vida) {
 
@@ -272,3 +272,4 @@ int main(int argc, char* argv[]) {
 	return SUCESSO;
 
 }
+
