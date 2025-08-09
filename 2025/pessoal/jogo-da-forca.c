@@ -54,7 +54,7 @@ void limpar_tela() {
 #define QNT_MAX_PALAVRAS_N 5
 #define QNT_INICIAL_VIDAS  5
 
-static void imprime_info(const char * palavra, const char * letras_tentadas, const int tamanho_palavra, const int quantidade_vida) {
+static void imprime_info(const char * letras_descobertas, const char * letras_tentadas, const int tamanho_palavra, const int quantidade_vida) {
 
 	printf("Voce ainda possui %i vidas.\n", quantidade_vida);
 
@@ -68,7 +68,7 @@ static void imprime_info(const char * palavra, const char * letras_tentadas, con
 	printf("\n");
 
 	for (int p = 0; p < tamanho_palavra; p++) {
-		printf("%c ", palavra[p]);
+		printf("%c ", letras_descobertas[p]);
 	}
 
 	printf("\n\n");
@@ -278,3 +278,4 @@ int main(int argc, char* argv[]) {
 	return SUCESSO;
 
 }
+
