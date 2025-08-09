@@ -130,10 +130,10 @@ static bool nivel3() {
 		imprime_info(letras_descobertas, letras_tentadas, TAM_MAX_PALAVRA_N3, quantidade_vidas);
 
 		if (0 == quantidade_vidas) {
-			return true; // Ele perdeu
+			return false; // Ele perdeu
 		}
 		if (descobriu_palavra(letras_descobertas, TAM_MAX_PALAVRA_N3)) {
-			return false; // Ele venceu
+			return true; // Ele venceu
 		}
 
 		printf("Tente uma letra\n: ");
@@ -168,10 +168,10 @@ static bool nivel2() {
 		imprime_info(letras_descobertas, letras_tentadas, TAM_MAX_PALAVRA_N2, quantidade_vidas);
 
 		if (0 == quantidade_vidas) {
-			return true; // Ele perdeu
+			return false; // Ele perdeu
 		}
 		if (descobriu_palavra(letras_descobertas, TAM_MAX_PALAVRA_N2)) {
-			return false; // Ele venceu
+			return true; // Ele venceu
 		}
 
 		printf("Tente uma letra\n: ");
@@ -206,10 +206,10 @@ static bool nivel1() {
 		imprime_info(letras_descobertas, letras_tentadas, TAM_MAX_PALAVRA_N1, quantidade_vidas);
 
 		if (0 == quantidade_vidas) {
-			return true; // Ele perdeu
+			return false; // Ele perdeu
 		}
 		if (descobriu_palavra(letras_descobertas, TAM_MAX_PALAVRA_N1)) {
-			return false; // Ele venceu
+			return true; // Ele venceu
 		}
 
 		printf("Tente uma letra\n: ");
@@ -229,32 +229,26 @@ static bool nivel1() {
 static bool comecar_jogo() {
 
 	int nivel_atual = 1;
-	bool perdeu = false;
+	bool venceu = true;
 
-	// Enquanto o usuario ainda nao perdeu ou nao chegou ao final...
-	// Lembre-se que perdeu eh o oposto de venceu, entao bool venceu = !perdeu;
-
-	while ((!perdeu) && (nivel_atual <= QNT_NIVEIS)) {
+	// Enquanto ele estiver vencendo e o nivel for menor que 3...
+	while ((venceu) && (nivel_atual <= QNT_NIVEIS)) {
 
 		switch (nivel_atual) {
 		case 1:
-			perdeu = nivel1();
+			venceu = nivel1();
 			break;
 		case 2:
-			perdeu = nivel2();
+			venceu = nivel2();
 			break;
 		case 3:
-			perdeu = nivel3();
+			venceu = nivel3();
 			break;
 		}
 		nivel_atual++;
 	}
-
-	// A variavel se trata se o usuario perdeuou nao, mas o valor de retorno espera se o usuario venceu ou nao.
-	// Se ele venceu, entao ele nao perdeu, se ele perdeu, entao nao venceu. (Sao contrarios)
-	// Retorno o valor contrario de perdeu (venceu). Explicacao na linha imediatamente acima.
-	return !perdeu; 
-
+	
+	return venceu; 
 }
 
 int main(int argc, char* argv[]) {
@@ -278,4 +272,5 @@ int main(int argc, char* argv[]) {
 	return SUCESSO;
 
 }
+
 
