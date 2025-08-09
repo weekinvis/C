@@ -170,7 +170,7 @@ static bool nivel2() {
 		if (0 == quantidade_vidas) {
 			return true; // Ele perdeu
 		}
-		if (descobriu_palavra(letras_descobertas, TAM_MAX_PALAVRA_N3)) {
+		if (descobriu_palavra(letras_descobertas, TAM_MAX_PALAVRA_N2)) {
 			return false; // Ele venceu
 		}
 
@@ -208,7 +208,7 @@ static bool nivel1() {
 		if (0 == quantidade_vidas) {
 			return true; // Ele perdeu
 		}
-		if (descobriu_palavra(letras_descobertas, TAM_MAX_PALAVRA_N3)) {
+		if (descobriu_palavra(letras_descobertas, TAM_MAX_PALAVRA_N1)) {
 			return false; // Ele venceu
 		}
 
@@ -276,4 +276,5 @@ int main(int argc, char* argv[]) {
 	} while (continuar);
 
 	return SUCESSO;
+
 }
